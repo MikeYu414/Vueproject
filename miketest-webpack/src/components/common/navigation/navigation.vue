@@ -1,7 +1,7 @@
 <!-- navigation -->
 <template>
   <div>
-    <a-menu v-model="current" mode="horizontal" theme="dark" :selectable="canSelect">
+    <a-menu class="m-menu" v-model="current" mode="horizontal" theme="dark" :selectable="canSelect">
       <a-menu-item key="mail"> <a-icon type="home" />Home </a-menu-item>
       <a-menu-item key="app">
         <a-icon type="appstore" />APPS
@@ -42,3 +42,6 @@ export default {
   methods: {},
 };
 </script>
+<style lang="scss">
+@import "./scss/navigation.scss";
+</style>

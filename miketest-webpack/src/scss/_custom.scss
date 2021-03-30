@@ -1,5 +1,26 @@
 @import "~bootstrap/scss/bootstrap";
 
+.app {
+    background-image: url(~@/assets/photos/bak1.jpg);
+}
+
 .anticon {
     vertical-align: -10%;
+}
+
+.m-card {
+    margin: 10px;
+
+    &:hover {
+        box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    }
+}
+
+.m-carousel {
+    margin: auto;
+}
+
+.m-cardgroup-3 {
+    max-width: 1400px;
+    margin: auto;
 }
