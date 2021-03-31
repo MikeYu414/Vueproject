@@ -35,6 +35,9 @@
             </a-col>
           </template>
         </a-row>
+
+        <LinkInfor></LinkInfor>
+
         <a-back-top />
       </a-layout-content>
 
@@ -51,6 +54,7 @@
 import Navigation from "./components/common/navigation/navigation";
 import Carousel from "./components/common/carousel/carousel";
 import Card from "./components/common/card/card";
+import LinkInfor from "./components/common/linkinfor/linkinfor";
 export default {
   name: "App",
   data() {
@@ -60,6 +64,7 @@ export default {
     Navigation,
     Carousel,
     Card,
+    LinkInfor
   },
 };
 </script>

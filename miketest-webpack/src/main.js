@@ -11,7 +11,7 @@ Vue.use(ElementUI)
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import 'jquery'
+import $ from 'jquery'
 
 // import { Button,Menu } from 'ant-design-vue';
 // Vue.component(Button.name, Button)
