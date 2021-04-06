@@ -1,6 +1,6 @@
 <!-- carousel -->
 <template>
-  <a-carousel arrows autoplay>
+  <a-carousel arrows :autoplay="componentData.auto">
     <div
       slot="prevArrow"
       slot-scope="props"
@@ -17,20 +17,25 @@
     >
       <a-icon type="right" />
     </div>
-    <img src="../../../assets/photos/dog5.jpeg" class="m-carousel-img" alt="dog" />
-    <img src="../../../assets/photos/dog2.jpeg" class="m-carousel-img" alt="dog" />
-    <img src="../../../assets/photos/dog3.jpeg" class="m-carousel-img" alt="dog" />
-    <img src="../../../assets/photos/dog4.jpeg" class="m-carousel-img" alt="dog" />
+    <img
+      v-for="(item, index) in componentData.images"
+      :key="index"
+      class="m-carousel-img"
+      :src="item.photoUrl"
+      :alt="item.alt"
+    />
   </a-carousel>
 </template>
 
 <script>
 export default {
   name: "Carousel",
-  props: [],
+  props: ["componentDataProps"],
   data() {
+    var tempSetting = {};
+    $.extend(tempSetting, this.componentDataProps, true);
     return {
-      
+      componentData: tempSetting,
     };
   },
 

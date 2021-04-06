@@ -1,12 +1,15 @@
 <template>
   <div id="app" class="app">
     <a-layout>
-      <a-layout-header>
+      <a-layout-header class="m-navigation">
         <Navigation></Navigation>
       </a-layout-header>
 
-      <a-layout-content>
-        <Carousel class="m-carousel"></Carousel>
+      <a-layout-content class="m-content">
+        <Carousel
+          class="m-carousel"
+          :component-data-props="carouselDatas"
+        ></Carousel>
         <a-divider>
           <h3>Dogs</h3>
         </a-divider>
@@ -16,32 +19,17 @@
           class="m-cardgroup-3"
           align="middle"
         >
-          <template v-for="i in 3">
-            <a-col :key="i" :span="8">
-              <Card class="m-card"></Card>
-            </a-col>
-          </template>
-        </a-row>
-        <h3>Dogs</h3>
-        <a-row
-          type="flex"
-          justify="space-around"
-          class="m-cardgroup-3"
-          align="middle"
-        >
-          <template v-for="i in 3">
-            <a-col :key="i" :span="8">
-              <Card class="m-card"></Card>
-            </a-col>
-          </template>
+          <a-col v-for="(cardData, index) in cardDatas" :key="index" :span="8">
+            <Card class="m-card" :component-data-props="cardData"></Card>
+          </a-col>
         </a-row>
 
-        <LinkInfor></LinkInfor>
+        <LinkInfor :component-data-props="linkInfors"></LinkInfor>
 
         <a-back-top />
       </a-layout-content>
 
-      <a-layout-footer> Ant Design ©2018 Created by Mike.Yu </a-layout-footer>
+      <Footer></Footer>
     </a-layout>
 
     <!-- <router-link to="/home">Home</router-link>
@@ -55,8 +43,13 @@ import Navigation from "./components/common/navigation/navigation";
 import Carousel from "./components/common/carousel/carousel";
 import Card from "./components/common/card/card";
 import LinkInfor from "./components/common/linkinfor/linkinfor";
+import Footer from "./components/common/footer/footer";
+
+import { testData } from "./data/testData";
+
 export default {
   name: "App",
+  mixins: [testData],
   data() {
     return {};
   },
@@ -64,19 +57,12 @@ export default {
     Navigation,
     Carousel,
     Card,
-    LinkInfor
+    LinkInfor,
+    Footer
   },
 };
 </script>
 
 <style lang="scss">
 @import "./scss/_custom.scss";
-
-.app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
 </style>

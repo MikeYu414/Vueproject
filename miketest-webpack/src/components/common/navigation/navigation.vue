@@ -15,7 +15,7 @@
         </a-menu-item-group>
       </a-sub-menu>
       <a-menu-item key="contact">
-        <a href="https://antdv.com" target="_blank" rel="noopener noreferrer">
+        <a href="#" target="_self" rel="noopener noreferrer">
           <a-icon type="phone" />Contact Me
         </a>
       </a-menu-item>

@@ -1,25 +1,31 @@
 <!-- card -->
 <template>
-  <a-card hoverable>
-    <img
-      slot="cover"
-      alt="example"
-      src="../../../assets/photos/dog6.jpeg"
-    />
-    <a-card-meta title="Test title">
-      <template slot="description">
-        test
-      </template>
-    </a-card-meta>
-  </a-card>
+  <a :href="componentData.linkUrl" target="_blank" :title="componentData.cardDescription">
+    <a-card hoverable>
+      <img slot="cover" alt="example" :src="componentData.photoUrl" />
+      <a-card-meta :title="componentData.cardTitle">
+        <template slot="description">
+          {{ componentData.cardDescription }}
+        </template>
+      </a-card-meta>
+    </a-card>
+  </a>
 </template>
 
 <script>
 export default {
-  name: 'Card',
+  name: "Card",
+  props: ["componentDataProps"],
   data() {
+    var defaultSetting = {
+      photoUrl: "../../../assets/photos/dog6.jpeg",
+      cardTitle: null,
+      cardDescription: null,
+      linkUrl: "",
+    };
+    $.extend(defaultSetting, this.componentDataProps, true);
     return {
-      
+      componentData: defaultSetting,
     };
   },
 
@@ -29,9 +35,8 @@ export default {
 
   mounted() {},
 
-  methods: {}
-}
-
+  methods: {},
+};
 </script>
 <style lang="scss">
 </style>

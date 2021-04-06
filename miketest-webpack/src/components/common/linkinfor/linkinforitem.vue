@@ -1,7 +1,7 @@
 <!-- link infor item -->
 <template>
   <div class="m-linkinforitem-container">
-    <h2>{{componentData.title}}</h2>
+    <h3 class="m-linkinforitem-title">{{componentData.title}}</h3>
     <div class="m-linkinforitem-text" v-for="(item, key) in componentData.links" :key="key">
       <a target="_blank" :href="item.url">{{item.name}}</a>
     </div>
