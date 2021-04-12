@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "ant-design-vue": "^1.7.4",
+    "axios": "^0.21.1",
     "babel-plugin-import": "^1.13.3",
     "bootstrap": "^4.6.0",
     "element-ui": "^2.15.1",

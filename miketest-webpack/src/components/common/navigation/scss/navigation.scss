@@ -1,3 +1,10 @@
 .m-menu {
     line-height: 64px !important;
+    li {
+        float: left;
+    }
+
+    .ant-menu-item i {
+        font-size: 24px;
+    }
 }

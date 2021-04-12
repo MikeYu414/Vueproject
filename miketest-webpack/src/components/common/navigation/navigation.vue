@@ -1,9 +1,19 @@
 <!-- navigation -->
 <template>
   <div>
-    <a-menu class="m-menu" v-model="current" mode="horizontal" theme="dark" :selectable="canSelect">
-      <a-menu-item key="mail"> <a-icon type="home" />Home </a-menu-item>
-      <a-menu-item key="app">
+    <a-menu
+      class="m-menu"
+      v-model="current"
+      mode="horizontal"
+      theme="dark"
+      :selectable="canSelect"
+    >
+      <a-menu-item key="mail">
+        <router-link to="/home"
+          ><a-icon type="home" />Home
+        </router-link></a-menu-item
+      >
+      <!-- <a-menu-item key="app">
         <a-icon type="appstore" />APPS
       </a-menu-item>
       <a-sub-menu>
@@ -18,22 +28,26 @@
         <a href="#" target="_self" rel="noopener noreferrer">
           <a-icon type="phone" />Contact Me
         </a>
-      </a-menu-item>
+      </a-menu-item> -->
+      <Logininfo></Logininfo>
     </a-menu>
   </div>
 </template>
 
 <script>
+import Logininfo from "@/components/common/loginuser/loginuser.vue"
 export default {
   name: "Navigation",
   data() {
     return {
       current: ["-1"],
-      canSelect: false
+      canSelect: false,
     };
   },
 
-  components: {},
+  components: {
+    Logininfo
+  },
 
   computed: {},
 
