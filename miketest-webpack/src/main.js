@@ -29,17 +29,18 @@ axios.defaults.baseURL = '/api'
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 import {Constant, ConstantForMixin} from "@/commonjs/constants.js"
+import store from './store/storeindex.js'
 
 Vue.config.productionTip = false
 
 var commonState = {
-  userState: Constant.userState.offLine,
   ifShowLogin: false
 };
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  store,
   router,
   components: { App },
   template: '<App/>',
