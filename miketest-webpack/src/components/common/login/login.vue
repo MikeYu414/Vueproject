@@ -109,7 +109,7 @@
       </div>
 
       <div class="m-login-footer">
-        <a class="m-login-swich" href="#" @click="switchLoginRegist">{{
+        <a class="m-login-swich" href="javascript:void(0);" @click="switchLoginRegist">{{
           isLogin ? "免费注册" : "已有账号，立即登录"
         }}</a>
       </div>
@@ -304,6 +304,7 @@ export default {
               userName: data.username,
               userAccount: data.account,
               userPhone: data.phone,
+              userPhoto: data.photo,
             };
             vm.$store.commit("userInfo/updateUserInfo", userInfo);
           }

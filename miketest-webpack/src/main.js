@@ -49,5 +49,25 @@ new Vue({
   ],
   data: {
     commonState
-  }
+  },
+  created() {
+    var vm = this;
+    vm.$axios
+      .post("/userInfo.php")
+      .then(function (response) {
+        if (response.data) {
+          var data = {
+              userState: vm.$root.Constant.userState.onLine,
+              userName: response.data.username,
+              userAccount: response.data.account,
+              userPhone: response.data.phone,
+              userPhoto: response.data.photo
+          }
+          vm.$store.commit("userInfo/updateUserInfo", data);
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  },
 })

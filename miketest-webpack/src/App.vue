@@ -1,14 +1,14 @@
 <template>
   <div id="app" class="app">
     <a-layout>
-      <a-layout-header class="m-navigation">
+      <a-layout-header v-if="!isWelcome" class="m-navigation">
         <Navigation :component-data-props="userInfo"></Navigation>
       </a-layout-header>
 
       <router-view/>
     </a-layout>
 
-    <Login></Login>
+    <Login v-if="!isWelcome"></Login>
   </div>
 </template>
 
@@ -24,10 +24,23 @@ export default {
   data() {
     return {};
   },
+  methods: {
+    test(){
+      debugger;
+    }
+  },
   components: {
     Navigation,
     Login
   },
+  computed: {
+    isWelcome() {
+      if (this.$route.name == "Welcome") {
+        return true;
+      }
+      return false;
+    }
+  }
 };
 </script>
 
